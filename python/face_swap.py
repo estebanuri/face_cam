@@ -434,15 +434,15 @@ def run(args):
 
     if args.output1 is not None:
         print("writing output result for image1...")
-        cv2.imwrite(args.outout1, result1)
+        cv2.imwrite(args.output1, result1)
 
     if args.output2 is not None:
         print("writing output result for image2...")
-        cv2.imwrite(args.outout2, result2)
+        cv2.imwrite(args.output2, result2)
 
     if args.show:
-        imshow("out 1", result1)
-        imshow("out 2", result2)
+        imshow("result 1", result1)
+        imshow("result 2", result2)
         cv2.waitKey()
 
 if __name__ == "__main__":
