@@ -28,6 +28,24 @@ def parse_args():
         help='dlib landmakrs shape predictor model path'
     )
 
+    parser.add_argument(
+        '-o1', '--output1',
+        required=False,
+        help='file output for image1 result'
+    )
+
+    parser.add_argument(
+        '-o2', '--output2',
+        required=False,
+        help='file output for image1 result'
+    )
+
+    parser.add_argument(
+        '-s', '--show',
+        default=True,
+        help='shows the results on screen and waits a key'
+    )
+
     args = parser.parse_args()
     return args
 
@@ -399,19 +417,33 @@ def run(args):
 
     print("loading face 1: {}".format(face1_file))
     face1 = cv2.imread(face1_file)
+    if face1 is None:
+        print("can't read image ", face1_file)
+        return
 
     print("loading face 2: {}".format(face2_file))
     face2 = cv2.imread(face2_file)
+    if face2 is None:
+        print("can't read image ", face2_file)
+        return
 
     print("loading models...")
     models = load_models(args)
 
     result1, result2 = swap_faces(models, face1, face2)
 
-    imshow("out 1", result1)
-    imshow("out 2", result2)
+    if args.output1 is not None:
+        print("writing output result for image1...")
+        cv2.imwrite(args.outout1, result1)
 
-    cv2.waitKey()
+    if args.output2 is not None:
+        print("writing output result for image2...")
+        cv2.imwrite(args.outout2, result2)
+
+    if args.show:
+        imshow("out 1", result1)
+        imshow("out 2", result2)
+        cv2.waitKey()
 
 if __name__ == "__main__":
     args = parse_args()
