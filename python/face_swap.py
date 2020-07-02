@@ -291,8 +291,7 @@ def blend(input_image, face_mask, landmark_points, clone_mode=cv2.NORMAL_CLONE):
     return out
 
 
-def precompute_swap(models, image, params, id=2):
-
+def precompute_face(models, image):
     face, landmarks = get_landmarks(models, image)
     lps = get_landmarks_points(landmarks)
 
@@ -300,29 +299,42 @@ def precompute_swap(models, image, params, id=2):
     pc['face'] = face
     pc['landmarks'] = landmarks
     pc['landmark_points'] = lps
+    return pc
 
-    params['precomputed' + str(id)] = pc
 
+# def precompute_swap(models, image, params, id=2):
+#
+#     pc = precompute_face(models, image)
+#
+#     params['precomputed' + str(id)] = pc
+#
+#     _, triplets = delunay(lps)
+#     params['triplets'] = triplets
+
+
+def build_triplets(pre_computed):
+    lps = pre_computed['landmark_points']
     _, triplets = delunay(lps)
-    params['triplets'] = triplets
+    return triplets
 
-    params['two_ways'] = False
-
-
-def build_params():
+def build_params(
+        pre_computed1=None,
+        pre_computed2=None,
+        triplets=None,
+        two_ways=True):
 
     params = {}
-    params['two_ways'] = True
-    params['precomputed1'] = None
-    params['precomputed2'] = None
-    params['triplets'] = None
+    params['precomputed1'] = pre_computed1
+    params['precomputed2'] = pre_computed2
+    params['triplets'] = triplets
     params['smooth1'] = True
+    params['two_ways'] = two_ways
 
     #clone_mode = None
     #clone_mode = 'poisson'
     clone_mode = cv2.NORMAL_CLONE
-
     params['clone'] = clone_mode
+
     return params
 
 
