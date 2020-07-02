@@ -6,6 +6,20 @@ This example swaps the faces from Alberto Fernandez and Mauricio Macri
 python face_swap.py -f1 images/alberto_fernandez.webp -f2 images/mauricio_macri.jpg
 ```
 
+## Input:
+
+Alberto Fernandez                          |  Mauricio Macri
+:-----------------------------------------:|:-------------------------:
+![](/python/images/alberto_fernandez.webp) |  ![](/python/images/mauricio_macri.jpg)
+
+
+## Output:
+Alberto Macri                               |   Mauricio Fernandez
+:------------------------------------------:|:-------------------------:
+![](/python/images/alberto_macri.jpg) |  ![](/python/images/mauricio_fernandez.jpg)
+
+
+
 
 # Video Application
 
