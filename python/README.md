@@ -1,7 +1,11 @@
 # Face Swap
 
 *Example*
+This example swaps the faces from Alberto Fernandez and Mauricio Macri
+```
 python face_swap.py -f1 images/alberto_fernandez.webp -f2 images/mauricio_macri.jpg
+```
+
 
 # Video Application
 
