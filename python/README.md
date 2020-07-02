@@ -21,20 +21,13 @@ python main.py -i 0 -e swap:images/alberto_fernandez.webp
 If you want to send the output through video conference (e. g. Zoom), 
 it is necessary to install a virtual video device. 
 
-##Virtual Video Device
-###Linux
+## Virtual Video Device
 
-For virtual video device I used *v4l2loopback* module.
+### Linux
+
+For virtual video device I used *v4l2loopback* module. **Important!!! There is a bug on the v4l2loopback and by the time I'm writing this the 
+module **does not work** if you install it directly with apt. Instead you'll need to build and install the last release from the official module github. 
  
-Tested on 
-- Ubuntu 18.04
-- Linux 5.3.0-46-generic
-
-**Important!!!**
-There is a bug on the v4l2loopback and by the time I'm writing this the 
-module **does not work** on Ubuntu 18.04 if you install it with apt.
-Instead follow the instructions explained in *Fixing the v4l2loopback module* 
-
 *Example*
 This example opens device 0 camera, detects your face and swaps it with Alberto's face.
 And sends the output to the fake video device /dev/video2. 
@@ -46,9 +39,14 @@ python main.py -i 0 -e swap:images/alberto_fernandez.webp -f /dev/video2
 ```
 
 
-##Fixing the v4l2loopback module
+## Fixing the v4l2loopback module
 This script, removes the current, and downloads, builds and installs the module with 
 the fix from the official github. 
+
+Tested on 
+- Ubuntu 18.04
+- Linux 5.3.0-46-generic
+
 
 ```
 #remove apt package
