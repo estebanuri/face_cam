@@ -94,7 +94,7 @@ python main.py -i 0 -f /dev/video2
 https://webcamtests.com/
 
 
-If you should be able to see the Dummy video device in the list.
+You should be able to see the Dummy video device in the list.
 
 
 
