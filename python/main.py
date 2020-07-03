@@ -111,24 +111,25 @@ def build_effect(models, args):
 
         to_precompute = []
 
-        config = ast.literal_eval(cfg)
-        if isinstance(config, str):
+        if os.path.isfile(cfg):
 
-            if os.path.isfile(config):
-                # it is a file: (by now we assume an image)
-                name = 'the other face'
-                file = cfg
-                to_precompute.append((name, file))
-
-        elif isinstance(config, list):
-
-            to_precompute = config
-            # for elem in config:
-            #     name, file = elem
-            #     to_precompute.append((name, file))
+            name = 'the face face to swap'
+            file = cfg
+            to_precompute.append((name, file))
 
         else:
-            raise Exception("effect config format not recognized", cfg)
+
+            config = ast.literal_eval(cfg)
+
+            if isinstance(config, list):
+
+                to_precompute = config
+                # for elem in config:
+                #     name, file = elem
+                #     to_precompute.append((name, file))
+
+            else:
+                raise Exception("effect config format not recognized", cfg)
 
         precomputed = []
         for tpc in to_precompute:
