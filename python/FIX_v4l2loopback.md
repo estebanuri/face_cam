@@ -72,15 +72,6 @@ sudo modprobe v4l2loopback devices=2
 
 # now list again:
 v4l2-ctl --list-devices
-Dummy video device (0x0000) (platform:v4l2loopback-000):
-	/dev/video2
-
-Integrated_Webcam_HD: Integrate (usb-0000:00:14.0-5):
-	/dev/video0
-	/dev/video1
-
-# now list again:
-v4l2-ctl --list-devices
 
 	Dummy video device (0x0000) (platform:v4l2loopback-000):
 		/dev/video2
@@ -90,7 +81,7 @@ v4l2-ctl --list-devices
 		/dev/video1
 
 
-# now the Dummy device IS there :)
+# now the Dummy device IS there
 
 ```
 
