@@ -17,5 +17,4 @@ Alberto Macri                               |   Mauricio Fernandez
 :------------------------------------------:|:-------------------------:
 ![](/python/images/alberto_macri.jpg) |  ![](/python/images/mauricio_fernandez.jpg)
 
-Alberto Johansson
-![](https://github.com/estebanuri/face_cam/blob/master/python/images/aberto_johansson.jpg)
+
