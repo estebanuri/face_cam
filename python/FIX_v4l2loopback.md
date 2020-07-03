@@ -11,8 +11,6 @@ Tested on
 - Linux 5.3.0-46-generic
 
 
-- step B every time the computer is restarted.
-
 ## A) Download the last release from github, build and install
 
 
