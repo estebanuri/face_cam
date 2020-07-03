@@ -213,6 +213,7 @@ def run(args):
     cv2.namedWindow("frame", cv2.WINDOW_NORMAL)
 
 
+    profile = None
     if args.profile:
         profile = cProfile.Profile()
 
@@ -242,7 +243,7 @@ def run(args):
 
         #ret_img = apply_face_effect2(models, frame)
         #ret_img = frame.copy()
-        if args.profile:
+        if profile is not None:
             profile.enable()
 
         try:
@@ -253,7 +254,7 @@ def run(args):
             print(e)
             ret_img = frame
 
-        if args.profile:
+        if profile is not None:
             profile.disable()
 
         cv2.imshow("frame", ret_img)
@@ -280,7 +281,7 @@ def run(args):
         # if k == ord('b'):
         #     background = frame.copy()
 
-    if args.profile:
+    if profile is not None:
         profile.disable()
         s = io.StringIO()
         sortby = "cumulative"
